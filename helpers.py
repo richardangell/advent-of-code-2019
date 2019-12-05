@@ -38,3 +38,26 @@ def load_input_sinle_list(file, sep = ',', convert_to_int = False):
         line = [int(x) for x in line]
 
     return line
+
+
+
+def load_input_multi_list(file, sep = ',', convert_to_int = False):
+    '''Function to load input which is a multiple rows of lists, with optional processing.'''
+
+    with open(file) as f:
+
+        lines = f.readlines()
+
+    for i in range(len(lines)):
+
+        lines[i] = lines[i].replace('\n', '')
+
+        lines[i] = lines[i].split(sep)
+
+    if convert_to_int:
+
+        for i in range(len(lines)):
+
+            lines[i] = [int(x) for x in lines[i]]
+
+    return lines
